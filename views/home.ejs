@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+</head>
+
+<body>
+    <h1>Posts</h1>
+    <table>
+        <tr>
+            <th>title</th>
+            <th>writer</th>
+            <th>Email</th>
+        </tr>
+        <% for(let post of posts) { %>
+            <tr>
+                <td><a href="/contents/<%=post._id%>">
+                        <%= post.postTitle %>
+                    </a>
+
+                </td>
+                <td>
+                    <%= post.postWriter %>
+                </td>
+                <td>
+                    <%= post.postEmail %>
+                </td>
+            </tr>
+            <%}%>
+    </table>
+    <a href="/newpost">Add New Post</a>
+</body>
+
+</html>

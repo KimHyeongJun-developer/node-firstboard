@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contents</title>
+</head>
+
+<body>
+    <h1>
+        Title : <%= posts.postTitle %>
+    </h1>
+    <h2>
+        Writer : <%= posts.postWriter %>
+    </h2>
+
+    <h2> Contents : <%= posts.postContent %>
+    </h2>
+    <br>
+    Email : <%= posts.postEmail %>
+        <br>
+        <section>
+            <a href="/update/<%=posts._id%>">Update</a>
+
+            <br>
+            <form action="/contents/<%=posts._id%>?_method=DELETE" method="post">
+                <button>DELETE</button>
+            </form>
+            <a href="/">back</a>
+        </section>
+        <hr>
+        <section>
+            <h3>Leave a Comment</h3>
+            <form action="/contents/<%= posts._id %>/comment" method="POST">
+                <label for="Comment">Comment : </label>
+
+                <textarea name="postComment[body]" id="Comment" placeholder="Type you comment" rows="5"
+                    cols="40"></textarea>
+                <label for="writer">Writer ID : </label>
+                <input type="text" name="postComment[writer]" , id="Writer" placeholder="Type your ID">
+                <button>Add Comment</button>
+            </form>
+
+        </section>
+        <hr>
+        <% for(let comment of posts.postComment) { %>
+            <div>
+                <p>
+                    Writer : <%= comment.writer %>
+                        <br>
+                        Comment : <%= comment.body%>
+                            <form action="/contents/<%= posts._id %>/comment/<%=comment._id%>?_method=DELETE"
+                                method="Post">
+                                <button>Delete Comment</button>
+                            </form>
+                </p>
+
+                <hr>
+            </div>
+            <% } %>
+
+                </section>
+
+</body>
+
+</html>

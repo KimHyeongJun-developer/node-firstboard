@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Post</title>
+</head>
+
+<body>
+    <h1>Update Post</h1>
+    <form action="/update/<%=udtPost._id%>?_method=PUT" method="POST">
+        <label for="postTitle">Title : </label>
+        <input type="text" name="postTitle" id="postTitle" placeholder="Title" value="<%=udtPost.postTitle%>">
+        <br>
+        <label for="postWriter">Writer : </label>
+        <input type="text" name="postWriter" id="postWriter" placeholder="Writer" value="<%=udtPost.postWriter%>">
+        <br>
+        <label for="postContent">Content : </label>
+        <textarea name="postContent" id="postContent" rows="10" cols="30"
+            placeholder="Type Your Story"><%= udtPost.postContent%></textarea>
+        <br>
+        <label for="postEmail">Email : </label>
+        <input type="text" name="postEmail" id="postEmail" placeholder="Email" value="<%=udtPost.postEmail%>">
+        <br>
+        <button>Update</button>
+    </form>
+    <a href=" /contents/<%=udtPost._id%>">back</a>
+
+</body>
+
+</html>
